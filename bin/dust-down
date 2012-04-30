@@ -2,21 +2,25 @@
 
 var fs = require('fs')
     ,walk = require('walkdir')
-    ,mkdirp = require('mkdirp');
+    ,mkdirp = require('mkdirp')
+    ,program = require('commander');;
 
 //get dust mobile; fallback to linkedin version
 try {
-   var dust = require('dust');
+    var dust = require('dust');
 } catch (err) {
-   var dust = require('dustjs-linkedin');
+    var dust = require('dustjs-linkedin');
 }
 
-//ensure path arg is provided
-if (!process.argv[2]) {
-    console.error('Please provide a path to your dust views');
-    return;
-}
+program
+    .version('0.0.1')
+    .usage('[path ...] [version - defaults to 0_0_0]')
+    .parse(process.argv);
 
+if (!program.args.length) {
+    process.stdout.write(program.helpInformation());
+    process.exit(0);
+}
 
 var version = "0_0_1";
 var view_path = process.argv[2];
@@ -26,13 +30,17 @@ try {
     stats = fs.lstatSync(view_path);
 
     if (!stats.isDirectory()) {
-        console.error('Please provide a valid path to your dust views');
-        return;
+        process.stdout.write(program.helpInformation());
+        console.error('    -Please provide a valid path to your dust views');
+        console.log();
+        process.exit(0);
     }
 }
 catch (e) {
-    console.error('Please provide a valid path to your dust views');
-    return;
+    process.stdout.write(program.helpInformation());
+    console.error('    -Please provide a valid path to your dust views');
+    console.log();
+    process.exit(0);
 }
 
 //version number should be in the following format - 0_0_0
