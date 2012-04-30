@@ -25,7 +25,7 @@ if (process.argv[3]) version = process.argv[3].replace(/\./g,'_').replace(/\-/g,
 var compiled_folder = view_path + "/compiled_" + version + "/";
 
 mkdirp(compiled_folder, function (err) {
-    if (err) console.error(err)
+    if (err) console.error(err);
     else console.log('Created folder : ' + compiled_folder);
 });
 
@@ -40,18 +40,20 @@ walk.sync(view_path, function(filepath, stat) {
         path_parts.splice(0, 1);
 
         for (folder in path_parts) {
-            if (path_parts[folder].indexOf("html") == -1) {
+            if (path_parts[folder].indexOf("html") == -1 && path_parts[folder].indexOf("dust") == -1) {
                 file_to_create = file_to_create + "\\" + path_parts[folder];
 
                 mkdirp(file_to_create, function (err) {
-                    if (err) console.error(err)
+                    if (err) console.error(err);
                     console.log('Created folder : ' + file_to_create);
                 });
             }
         }
 
-        var filename = filepath.split("/").reverse()[0].replace(".html", "");
+        var filename = filepath.split("/").reverse()[0].replace(".html", "").replace(".dust", "");
         file_to_create = file_to_create + "\\" + filename + "_"  + version + ".js";
+
+        //compile to dust
         var compiled = dust.compile(data, filename);
 
         fs.writeFile(file_to_create, compiled, function (err) {
