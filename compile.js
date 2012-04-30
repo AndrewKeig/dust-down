@@ -15,8 +15,23 @@ if (!process.argv[2]) {
     return;
 }
 
+
 var version = "0_0_1";
 var view_path = process.argv[2];
+
+
+try {
+    stats = fs.lstatSync(view_path);
+
+    if (!stats.isDirectory()) {
+        console.error('Please provide a valid path to your dust views');
+        return;
+    }
+}
+catch (e) {
+    console.error('Please provide a valid path to your dust views');
+    return;
+}
 
 //version number should be in the following format - 0_0_0
 if (process.argv[3]) version = process.argv[3].replace(/\./g,'_').replace(/\-/g,'_');
