@@ -1,15 +1,22 @@
 {
-    "name": "dust-down"
-  , "version": "0.0.1"
-  , "description": "compiling dust.js templates"
-  , "keywords": ["node.js", "dust.js", "compile"]
-  , "author": "Andrew Keig <andrew.keig@gmail.com>"
-  , "repository": { "type": "git", "url": "git@github.com:AndrewKeig/dust-down.git" }
-  , "main": "./server.js"
-  , "dependencies": {
+  "author": "Andrew Keig <andrew.keig@gmail.com> (airasoul.net)",
+  "name": "dust-down",
+  "description": "compiling dust.js templates",
+  "keywords": ["node.js", "dust.js", "compile"],
+  "version": "0.0.1",
+  "repository": {
+    "url": "git@github.com:AndrewKeig/dust-down.git"
+  },
+  "main": "compile.js",
+  "dependencies": {
       "walkdir": ">= 0.0.1"
       , "mkdirp": ">= 0.3.1"
       , "dust": "*"
       , "dustjs-linkedin": "*"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
   }
 }
