@@ -5,11 +5,10 @@
   "keywords": ["node.js", "dust.js", "compile"],
   "version": "0.0.1",
   "repository": {
+    "type": "git",
     "url": "git@github.com:AndrewKeig/dust-down.git"
   },
-  "main": "compile.js",
-  "bin" : { "dust-down" : "./bin/dust-down" },
-  "directories"   : { "bin": "./bin" },
+  "bin": { "dust-down": "./bin/dust-down" },
   "dependencies": {
       "walkdir": ">= 0.0.1"
       , "mkdirp": ">= 0.3.1"

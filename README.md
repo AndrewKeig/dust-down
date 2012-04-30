@@ -13,6 +13,11 @@ we are currently supporting the following features:
     $ npm install dust-down
 
 
+## Usage
+
+    Usage: dust-down [path] [version_number]
+
+
 # Example 1; with path; default version number
 
 
@@ -26,7 +31,7 @@ given the following folder structure
 
 when we execute the compiler with a single path argument
 
-    node compile.js /path_to_templates/
+    node dust-down /path_to_templates/
 
 then dust-down will compile templates to
 
@@ -51,7 +56,7 @@ given the following folder structure
 
 when we execute the compiler with a path and version argument
 
-    node compile.js /path_to_templates/ 0_0_5
+    node dust-down /path_to_templates/ 0_0_5
 
 
 then dust-down will compile templates to

@@ -1,6 +1,8 @@
-var fs = require('fs');
-var walk = require('walkdir');
-var mkdirp = require('mkdirp');
+#!/usr/bin/env node
+
+var fs = require('fs')
+    ,walk = require('walkdir')
+    ,mkdirp = require('mkdirp');
 
 //get dust mobile; fallback to linkedin version
 try {
