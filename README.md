@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/AndrewKeig/dust-down.png)](http://travis-ci.org/AndrewKeig/dust-down)
 # dust-down - compiling dust.js templates
 
 dust-down is a node.js command line tool which will compile all dust.js templates in a given directory; and write each to a javascript file; ready to be used for client side templating. 
